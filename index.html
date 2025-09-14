@@ -3,99 +3,321 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Profile</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Student Profile - NinoRanielCapuli</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #f5f5f5;
+      --dark: #1e1e2f;
+      --light: #fff;
+      --text: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a90e2, #1e88e5);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.1);
+      color: #ffeb3b;
+    }
+
+    .custom-link {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .custom-link:hover {
+      color: #ffeb3b;
+    }
+
+    .container {
+      display: flex;
+      min-height: calc(100vh - 100px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 270px;
+      background: var(--light);
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      background: var(--secondary);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    .profile-card h2 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: var(--primary);
+    }
+
+    .profile-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .social-links a {
+      margin: 0 5px;
+      color: var(--primary);
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #1e88e5;
+    }
+
+    /* Sidebar Links */
+    .sidebar h3 {
+      margin-top: 20px;
+      color: var(--primary);
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .sidebar a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background: var(--secondary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    iframe.loaded {
+      opacity: 1;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1e88e5, #4a90e2);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      position: sticky;
+      bottom: 0;
+    }
+
+    body.dark {
+      --secondary: #121212;
+      --light: #1e1e1e;
+      --text: #ddd;
+    }
+
+    .dark header {
+      background: linear-gradient(135deg, #333, #000);
+    }
+
+    .dark footer {
+      background: linear-gradient(135deg, #000, #333);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .toggle-btn:hover {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <h2>NinoRanielCapuli</h2>
+    <h1 id="interactiveName">NinoRanielCapuli</h1>
     <p>BSIE - ICT 3A</p>
-    <p><a class="custom-link fa-brands fa-github" 
-      href="https://github.com/NinoRanielCapuli/web-dev-labs"> Github Repository</a></p>    
+    <p>
+      <a class="custom-link" href="https://github.com/NinoRanielCapuli/web-dev-labs" target="_blank">
+        <i class="fa-brands fa-github"></i> Github Repository
+      </a>
+    </p>
+    <button class="toggle-btn" id="modeToggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
   </header>
 
   <div class="container">
-    <div class="sidebar">
+    <nav class="sidebar">
+
+      <div class="profile-card">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        <h2>Nino Raniel Capuli</h2>
+        <p>Student | Web Dev Learner</p>
+        <div class="social-links">
+          <a href="https://github.com/NinoRanielCapuli" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
       <h3>Activities</h3>
       <ul>
-        <li> Lab 1: Intro
+        <li>Lab 1: Intro
           <ul>
-            <li>
-              <a href="lab1\act1.1.html" target="activity-frame" aria-label="Lab 1 Activity 1">Activity 1</a>
-            </li>
+            <li><a href="lab1/act1.1.html" target="activity-frame">Activity 1</a></li>
           </ul>
         </li>
-        <li> Lab 2: Git
+        <li>Lab 2: Git
           <ul>
-            <li>
-              <a href="lab2\act2.1.html" target="activity-frame" aria-label="Lab 2 Activity 2.1">Activity 2.1</a>
-            </li>
+            <li><a href="lab2/act2.1.html" target="activity-frame">Activity 2.1</a></li>
           </ul>
         </li>
-        <li> Lab 3: Workflow
+        <li>Lab 3: Workflow
           <ul>
-            <li>
-              <a href="lab3/act3.1.html" target="activity-frame" aria-label="Lab 3 Activity 1">Activity 1</a>
-            </li>
+            <li><a href="lab3/act3.1.html" target="activity-frame">Activity 1</a></li>
           </ul>
         </li>
-        <li> Lab 4: HTML5 (Part 1)
+        <li>Lab 4: HTML5 (Part 1)
           <ul>
-            <li>
-              <a href="lab4/about.html" target="activity-frame" aria-label="Lab 4 About Me">About Me</a>
-            </li>
-             <li>
-              <a href="lab4/First Page.html" target="activity-frame" aria-label="Lab 4 First Page">First page</a>
-            </li>
-            <li>
-              <a href="lab4/favorites.html" target="activity-frame" aria-label="Lab 4 Favorites">Favorites</a>
-            </li>
-            <li>
-              <a href="lab4/visual-code.html" target="activity-frame" aria-label="Lab 4 Visual to Code">Visual to Code</a>
-            </li>
+            <li><a href="lab4/about.html" target="activity-frame">About Me</a></li>
+            <li><a href="lab4/First Page.html" target="activity-frame">First Page</a></li>
+            <li><a href="lab4/favorites.html" target="activity-frame">Favorites</a></li>
+            <li><a href="lab4/visual-code.html" target="activity-frame">Visual to Code</a></li>
           </ul>
-        </li>     
-         <li> Lab 5: HTML5 (Part 2)
+        </li>
+        <li>Lab 5: HTML5 (Part 2)
           <ul>
-            <li>
-              <a href="lab5/about.html" target="activity-frame" aria-label="Lab 5 About Page Mini Cafe">About Page Mini Cafe</a>
-            </li>
-            <li>
-              <a href="lab5/favorites.html" target="activity-frame" aria-label="Lab 5 Favorites">Favorites</a>
-            </li>
-            <li>
-              <a href="lab5/visual-code.html" target="activity-frame" aria-label="Lab 5 Visual to Code">Visual to Code</a>
-            </li>
+            <li><a href="lab5/about.html" target="activity-frame">About Page Mini Cafe</a></li>
+            <li><a href="lab5/favorites.html" target="activity-frame">Favorites</a></li>
+            <li><a href="lab5/visual-code.html" target="activity-frame">Visual to Code</a></li>
           </ul>
-        </li>   
-        <li> Lab 6: HTML5 (Part 3)
+        </li>
+        <li>Lab 6: HTML5 (Part 3)
           <ul>
-            <li>
-              <a href="lab6/Activity 1/Basic-style.html" target="activity-frame" aria-label="Lab 6 Activity 1">Activity 1</a>
-            </li>
-              <a href="lab6/Act 4.html" target="activity-frame" aria-label="Lab 6 Activity 4">Activity 4</a>
-            </li>
-            <li>
-              <a href="lab6/visual-code.html" target="activity-frame" aria-label="Lab 6 Visual to Code">Visual to Code</a>
-            </li>
+            <li><a href="lab6/Activity 1/Basic-style.html" target="activity-frame">Activity 1</a></li>
+            <li><a href="lab6/Act 4.html" target="activity-frame">Activity 4</a></li>
+            <li><a href="lab6/visual-code.html" target="activity-frame">Visual to Code</a></li>
           </ul>
-        </li>   
+        </li>
+        <li>Lab 7: HTML5 (Part 3)
+          <ul>
+            <li><a href="lab7/Act 1.html" target="activity-frame">Activity 1</a></li>
+            <li><a href="lab7/box-style.html" target="activity-frame">Box Style</a></li>
+            <li><a href="lab7/cards.html" target="activity-frame">Cards</a></li>
+            <li><a href="lab7/gridfill.html" target="activity-frame">Grid Fill</a></li>
+            <li><a href="lab7/visual-code.html" target="activity-frame">Visual to Code</a></li>
+          </ul>
+        </li>
         <li>Mini Project
           <ul>
-            <li><a href="mini-cafe-site/index.html" target="activity-frame" aria-label="Mini Cafe Site Home Page">Home Page</a></li>
+            <li><a href="mini-cafe-site/index.html" target="activity-frame">Home Page</a></li>
           </ul>
         </li>
       </ul>
+    </nav>
 
-        
-    </div>
-
-    <div class="content">
+    <main class="content">
       <iframe name="activity-frame" title="Activity Frame"></iframe>
-    </div>
+    </main>
   </div>
+
+  <script>
+
+    document.getElementById('interactiveName').addEventListener('click', () => {
+      alert('Hello, I am NinoRanielCapuli!');
+    });
+
+ 
+    const iframe = document.querySelector("iframe");
+    iframe.addEventListener("load", () => {
+      iframe.classList.add("loaded");
+    });
+
+    const toggleBtn = document.getElementById("modeToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.innerHTML = document.body.classList.contains("dark")
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+    });
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .box1 {
+            background-color: #3a7164; /* Light gray */
+        }
+
+        .box2 {
+            background-color: #573030; /* Slightly darker gray */
+            border: 2px dashed #aaa;
+        }
+
+        .box3 {
+            background-color: #7b815a; /* Even darker gray */
+            border: 3px solid #888;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="box box1">
+            <h3>Box 1</h3>
+            <p>Hello</p>
+        </div>
+        <div class="box box2">
+            <h3>Box 2</h3>
+            <p>Hi</p>
+        </div>
+        <div class="box box3">
+            <h3>Box 3</h3>
+            <p>Kamusta</p>
+        </div>
+    </div>
+
+</body>
+</html>
