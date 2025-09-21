@@ -1,85 +1,199 @@
+:root {
+  --primary: #4a90e2;
+  --secondary: #f5f5f5;
+  --dark: #1e1e2f;
+  --light: #fff;
+  --text: #333;
+}
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--secondary);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background: #0077cc;
-  color: white;
-  padding: 1px;
+  background: linear-gradient(135deg, #4a90e2, #1e88e5);
+  color: #fff;
   text-align: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-header p{
-  font-size: 0.9em;
-  color: #e0e0e0;  
+header h1 {
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.1);
+  color: #ffeb3b;
+}
+
+.custom-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: #ffeb3b;
 }
 
 .container {
   display: flex;
-  height: 90vh;
+  flex: 1;
+  overflow: hidden;
 }
 
 .sidebar {
-  width: 20%;
-  background: #f4f4f4;
-  padding: 15px;
-  box-sizing: border-box;
-  border-right: 1px solid #ddd;
+  width: 270px;
+  background: var(--light);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
   overflow-y: auto;
+  transition: background 0.3s, color 0.3s;
+}
+
+.profile-card {
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  background: var(--secondary);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.profile-card h2 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.social-links a {
+  margin: 0 5px;
+  color: var(--primary);
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #1e88e5;
 }
 
 .sidebar h3 {
-  margin-top: 0;
+  margin-top: 20px;
+  color: var(--primary);
 }
 
 .sidebar ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
-  margin: 8px 0;
-}
-
-.sidebar li ul {
-  margin-left: 15px;
-  padding-left: 0px;
-  border-left: 2px solid #ddd;
+  margin-bottom: 12px;
 }
 
 .sidebar a {
   text-decoration: none;
-  color: #0077cc;
+  color: var(--text);
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .sidebar a:hover {
-  text-decoration: underline;
+  background: var(--primary);
+  color: #fff;
+  transform: translateX(5px);
 }
 
 .content {
-  width: 80%;
-  padding: 15px;
-  box-sizing: border-box;
+  flex: 1;
+  background: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 iframe {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.custom-link {
-    text-decoration: none; /* Removes underline */
-    color: #ffffff; /* Set your desired color (e.g., blue) */
+iframe.loaded {
+  opacity: 1;
 }
 
-.custom-link:visited {
-    color: #ffffff; /* Same color for visited links */
+footer {
+  background: linear-gradient(135deg, #1e88e5, #4a90e2);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  position: sticky;
+  bottom: 0;
 }
 
-.custom-link:hover,
-.custom-link:active {
-    color: #06559e; /* Same color for hover and active states */
-    text-decoration: none; /* Ensure no underline on hover */
+body.dark {
+  --secondary: #121212;
+  --light: #1e1e1e;
+  --text: #ddd;
+}
+
+.dark header {
+  background: linear-gradient(135deg, #333, #000);
+}
+
+.dark footer {
+  background: linear-gradient(135deg, #000, #333);
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.toggle-btn:hover {
+  transform: rotate(180deg);
 }
