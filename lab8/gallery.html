@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Grid Gallery</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr 1fr; 
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery {
+        grid-template-columns: 1fr 1fr 1fr; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Photo Grid Gallery Hyperpop Art</h2>
+  <div class="gallery">
+    <img src="Images/1.jpg" alt="Image 1">
+    <img src="Images/2.jpg" alt="Image 2">
+    <img src="Images/3.jpg" alt="Image 3">
+    <img src="Images/4.jpg" alt="Image 4">
+    <img src="Images/5.jpg" alt="Image 5">
+  </div>
+</body>
+</html>

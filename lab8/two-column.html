@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Column Layout</title>
+  <style>
+    body {
+      margin: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .text {
+      background-color: lightyellow;
+      padding: 20px;
+    }
+
+    .image {
+      background-color: lightblue;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+
+      .text, .image {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text">
+      <h2>About Us</h2>
+      <p>This is a two-column layout with text on the left and an image on the right.</p>
+    </div>
+    <div class="image">
+      <img src="Images/sample.jpg" alt="sample" width="300">
+    </div>
+  </div>
+</body>
+</html
