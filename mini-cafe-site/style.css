@@ -1,84 +1,95 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fdf6f0;
-    color: #3e2723;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #fdf6f0;
+    color: #3e2723;
 }
 
 header {
-    background-color: #6f4e37;
-    color: #fff;
+    background-color: #4e342e;
+    color: #fff8e1;
     text-align: center;
-    padding: 30px;
+    padding: 30px 15px;
 }
+
 header h1 {
-    margin: 0;
     font-size: 2.5em;
+    margin: 0;
 }
+
 header p {
-    font-size: 1.1em;
-    margin-top: 10px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+nav {
+    background-color: #3e2723;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #6d4c41;
+}
+
+nav a.active {
+    background-color: #5d4037;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
 }
 
 section {
-    padding: 20px;
-    margin: 20px;
-    background-color: #fff8f0;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
 }
+
 h2 {
     color: #4e342e;
-    border-bottom: 2px solid #d7ccc8;
+    font-size: 1.8em;
+    border-bottom: 3px solid #d7ccc8;
+    display: inline-block;
     padding-bottom: 5px;
+}
+
+p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 15px;
-}
-ul li {
-    background-color: #fbe9e7;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-a {
-    display: block;
-    text-align: center;
-    margin: 20px;
-    text-decoration: none;
-    color: #6f4e37;
-    font-weight: bold;
+ul li {
+    background-color: #fff3e0;
+    margin: 10px auto;
+    padding: 15px;
+    width: 60%;
+    border-radius: 8px;
     font-size: 1.1em;
-}
-a:hover {
-    text-decoration: underline;
 }
 
 footer {
+    background-color: #3e2723;
+    color: #fff8e1;
     text-align: center;
-    background-color: #6f4e37;
-    color: #fff;
-    padding: 15px;
-    margin-top: 30px;
-}
-
-@media (min-width: 768px) {
-    ul {
-        grid-template-columns: 1fr 1fr; 
-    }
-}
-
-@media (min-width: 1024px) {
-    ul {
-        grid-template-columns: 1fr 1fr 1fr; 
-    }
+    padding: 15px 0;
+    font-size: 0.9em;
+    margin-top: 50px;
 }
