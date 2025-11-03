@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Responsive design */
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr { border: 1px solid #ccc; }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+            /*
+            Label the data
+            */
+            td:nth-of-type(1):before { content: "Name"; }
+            td:nth-of-type(2):before { content: "Quantity"; }
+            td:nth-of-type(3):before { content: "Price"; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic Table</h2>
+
+    <table id="dynamicTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const tableData = [
+            { name: "Apple", quantity: 10, price: 1.00 },
+            { name: "Banana", quantity: 20, price: 0.50 },
+            { name: "Orange", quantity: 15, price: 0.75 }
+        ];
+
+        const tableBody = document.querySelector("#dynamicTable tbody");
+
+        tableData.forEach(item => {
+            let row = document.createElement("tr");
+
+            let nameCell = document.createElement("td");
+            nameCell.textContent = item.name;
+            row.appendChild(nameCell);
+
+            let quantityCell = document.createElement("td");
+            quantityCell.textContent = item.quantity;
+            row.appendChild(quantityCell);
+
+            let priceCell = document.createElement("td");
+            priceCell.textContent = item.price.toFixed(2); // Format to 2 decimal places
+            row.appendChild(priceCell);
+
+            tableBody.appendChild(row);
+        });
+    </script>
+
+</body>
+</html>
