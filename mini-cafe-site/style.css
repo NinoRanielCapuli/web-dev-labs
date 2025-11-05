@@ -1,11 +1,10 @@
-body {
+    body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fdf6f0;
     color: #3e2723;
 }
-
 header {
     background-color: #4e342e;
     color: #fff8e1;
@@ -49,19 +48,19 @@ nav a.active {
 
 main {
     padding: 40px 20px;
-    text-align: center;
 }
 
 section {
     margin-bottom: 40px;
 }
 
-h2 {
+h2, h3 {
     color: #4e342e;
     font-size: 1.8em;
     border-bottom: 3px solid #d7ccc8;
     display: inline-block;
     padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 p {
@@ -92,4 +91,72 @@ footer {
     padding: 15px 0;
     font-size: 0.9em;
     margin-top: 50px;
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-custom {
+    background-color: #4e342e;
+    color: #fff8e1;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #6d4c41;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff3e0;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.feedback-item {
+    background-color: #fff8e1;
+    border-left: 5px solid #4e342e;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    ul li {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    h2, h3 {
+        font-size: 1.5em;
+    }
 }

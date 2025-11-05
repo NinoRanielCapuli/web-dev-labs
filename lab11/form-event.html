@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Event</title>
+</head>
+<body>
+    <h2>Enter Your Name</h2>
+    <input type="text" id="nameField" placeholder="Your name">
+    <button onclick="sayThanks()">Submit</button>
+
+    <script>
+        function sayThanks() {
+            let name = document.getElementById('nameField').value;
+            alert("Thank you, " + name + "!");
+        }
+    </script>
+</body>
+</html>
