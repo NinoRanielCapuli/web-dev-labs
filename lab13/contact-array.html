@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Array</title>
+</head>
+<body>
+
+<h2>Contact Form</h2>
+
+<form id="contactForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Message:</label>
+    <input type="text" id="message"><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h3>Submitted Entries</h3>
+<ul id="output"></ul>
+
+<script>
+let entries = [];
+
+document.getElementById("contactForm").onsubmit = function (event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+
+    if (name === "" || message === "") {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    entries.push({ name, message });
+
+    let list = document.getElementById("output");
+    list.innerHTML = "";
+
+    entries.forEach(function(entry) {
+        let li = document.createElement("li");
+        li.textContent = entry.name + ": " + entry.message;
+        list.appendChild(li);
+    });
+};
+</script>
+
+</body>
+</html>

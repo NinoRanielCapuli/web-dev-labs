@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Fix</title>
+</head>
+<body>
+
+<h2>Fixed Form Validation</h2>
+
+<form id="myForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm(event) {
+    event.preventDefault(); // prevents page refresh
+
+    let name = document.getElementById("name").value;
+
+    if (name == "") {
+        alert("Please enter your name.");
+    } else {
+        alert("Form submitted successfully!");
+    }
+}
+
+document.getElementById("myForm").onsubmit = validateForm;
+</script>
+
+</body>
+</html>
